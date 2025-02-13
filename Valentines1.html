@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8e0e6;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            position: relative;
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .heart {
+            font-size: 5em;
+            color: red;
+        }
+        .message {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #ff4081;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #f50057;
+        }
+        .no-button {
+            position: absolute;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* Make it more mobile-friendly */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            .heart {
+                font-size: 4em;
+            }
+            .message {
+                font-size: 1.2em;
+            }
+            .button {
+                padding: 12px 24px;
+                font-size: 1.1em;
+            }
+            .no-button {
+                font-size: 1.1em;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will You Be My Valentine?</h1>
+    <div class="heart">❤️</div>
+    <div class="message">
+        <p>To my special one,</p>
+        <p>Every moment with you is pure magic, and I would be the happiest person in the world if you said yes!</p>
+        <p>So... what do you say?</p>
+    </div>
+
+    <button id="yesBtn" class="button" onclick="acceptValentine()">Yes, I will be your Valentine!</button>
+    <button id="noBtn" class="button" onclick="moveNoBtn()">No</button>
+    <button id="randomNoBtn" class="no-button" onclick="moveNoBtn()">No</button>
+
+    <script>
+        // Function to handle the 'Yes' click and redirect to YouTube
+        function acceptValentine() {
+            window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Replace with your YouTube URL
+        }
+
+        // Function to move the 'No' button randomly
+        function moveNoBtn() {
+            const noBtn = document.getElementById("noBtn");
+            const randomNoBtn = document.getElementById("randomNoBtn");
+
+            // Hide original 'No' button
+            noBtn.style.display = 'none';
+
+            // Show the hidden random 'No' button
+            randomNoBtn.style.display = 'block';
+
+            // Move the random 'No' button to a random position
+            const randomX = Math.floor(Math.random() * (window.innerWidth - randomNoBtn.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - randomNoBtn.offsetHeight));
+
+            randomNoBtn.style.left = randomX + 'px';
+            randomNoBtn.style.top = randomY + 'px';
+        }
+    </script>
+
+</body>
+</html>
